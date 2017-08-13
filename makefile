@@ -4,7 +4,7 @@ COMPILER = 'clang'
 FLAGS = '-Weverything'
 TEST = 'test.md'
 
-$(BIN): src/copy_file.h src/tag_states.h src/main.c
+$(BIN): src/copy_file.h src/line_state.h src/main.c
 	$(BINCHECK) clang $(FLAGS) src/main.c -o $(BIN)
 
 check:
