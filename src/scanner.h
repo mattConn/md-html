@@ -30,6 +30,9 @@ void scanner(char *file_str)
 					printf("</h%d>", line.h);
 					in.h = false;
 					line.h = 0;
+				} else if(in.p) {
+					printf("</p>");
+					in.p = false;
 				}
 
 				printf("%c", file_str[i]);
@@ -58,6 +61,12 @@ void scanner(char *file_str)
 				break;
 
 			default:
+				if(file_str[i-1] == '\n' && !in.code)
+				{
+					printf("<p>");
+					in.p = true;
+				}
+
 				printf("%c", file_str[i]);
 		}
 
