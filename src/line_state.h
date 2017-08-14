@@ -14,5 +14,6 @@ typedef struct {
 	bool newl;
 	int h;
 	int ccount;
+	int code;
 } LINE;
 LINE line;
