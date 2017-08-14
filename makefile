@@ -1,4 +1,4 @@
-BIN = 'bin/mdhtml'
+BIN = 'bin/md-html'
 BINCHECK = if [ ! -d bin ]; then mkdir bin; fi;
 COMPILER = 'clang'
 FLAGS = '-w'
