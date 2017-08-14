@@ -1,7 +1,7 @@
 BIN = 'bin/mdhtml'
 BINCHECK = if [ ! -d bin ]; then mkdir bin; fi;
 COMPILER = 'clang'
-FLAGS = '-Weverything'
+FLAGS = '-w'
 TEST = 'test.md'
 
 $(BIN): src/copy_file.h src/line_state.h src/main.c
