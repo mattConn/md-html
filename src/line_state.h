@@ -7,7 +7,7 @@ typedef struct {
 	bool code, codeblock;
 	bool link;
 } state;
-state open;
+state in;
 
 // line status
 typedef struct {
