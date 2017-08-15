@@ -6,6 +6,7 @@ void scanner(char *file_str)
 		
 		switch (file_str[i]) {
 
+			// count htag
             case '#':
                 if(line.h < 6 && !in.code)
                     line.h++;
@@ -13,6 +14,7 @@ void scanner(char *file_str)
                     printf("%c", file_str[i]);
                 break;
 			
+			// open htag on space
 			case ' ':
 
 				if(line.h > 0 && !in.h && !in.code)
@@ -24,21 +26,39 @@ void scanner(char *file_str)
 				}
 				break;
 
+			//newline
 			case '\n':
+				// close htag if in htag
 				if(in.h)
 				{
 					printf("</h%d>", line.h);
 					in.h = false;
 					line.h = 0;
+				} else if(in.li) {
+					printf("</li>");
+					in.li = false;
+
+					if(file_str[i+1] != '-')
+					{
+						if(in.ul)
+						{
+							printf("\n</ul>");
+							in.ul = false;
+						}
+					}
 				} else if(in.p) {
+					//close ptag if in ptag
 					printf("</p>");
 					in.p = false;
 				}
 
+				//print newline char
 				printf("%c", file_str[i]);
 				break;
 
+			//code
 			case '`':
+				// if code block (3 backticks)
 				if(file_str[i+1] == '`' && file_str[i+2] == '`')
 				{
 					//skip over next 2 backticks
@@ -51,12 +71,31 @@ void scanner(char *file_str)
 						printf("</code></pre>");
 						in.code = false;
 					}
+				// if inline code (1 backtick)
 				} else if(!in.code) {
 					printf("<code>");
 					in.code = true;
 				} else {
 					printf("</code>");
 					in.code = false;
+				}
+				break;
+	
+			// lists
+			case '-':
+				if(!in.code)
+				{
+					// on start of new line with space after dash, open ul
+					if(file_str[i-1] == '\n' && file_str[i+1] == ' ' && !in.ul)
+					{
+						// skip over space
+						i+=1;
+	
+						printf("<ul>\n");
+						in.ul = true;
+					}
+					printf("<li>");
+					in.li = true;
 				}
 				break;
 
@@ -67,7 +106,7 @@ void scanner(char *file_str)
 					in.p = true;
 				}
 
-				printf("%c", file_str[i]);
+			printf("%c", file_str[i]);
 		}
 
 	}	

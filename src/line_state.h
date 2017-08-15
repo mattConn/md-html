@@ -3,7 +3,7 @@ typedef struct {
 	//bool h1, h2, h3, h4, h5, h6;
 	bool h;
 	bool p;
-	bool ul, ol;
+	bool ul, ol, li;
 	bool code, codeblock;
 	bool link;
 } state;
