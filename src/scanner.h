@@ -106,12 +106,26 @@ void scanner(char *file_str)
 				break;
 	
 			//==============================
-			// lists
+			// lists and horizontal rule
 			//==============================
+
+			//---------------------
 			//unordered
+			//---------------------
 			case '-':
 				if(!in.code)
 				{
+					//---------------------
+					//horizontal rule
+					//---------------------
+					if(file_str[i-1] == '\n' && file_str[i+1] == '-' && file_str[i+2] == '-')
+					{
+						//skip over 2 dashes
+						i+=2;
+						printf("<hr>");
+						break;
+					}
+
 					// on start of new line with space after dash, open ul
 					if(file_str[i-1] == '\n' && file_str[i+1] == ' ' && !in.ul)
 					{
@@ -120,8 +134,10 @@ void scanner(char *file_str)
 	
 						printf("<ul>\n");
 						in.ul = true;
-
+					
+					//---------------------
 					//ordered
+					//---------------------
 					} else if(file_str[i-1] == '\n' && file_str[i+1] == '.' && file_str[i+2] == ' ' && !in.ol) {
 						// skip over period and space
 						i+=2;

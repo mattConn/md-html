@@ -13,6 +13,9 @@ do
 	echo $foo;
 done;
 ```
+An hr:
+---
+
 This is a list (unordered):
 - foo
 - bar
