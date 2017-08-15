@@ -16,6 +16,8 @@ done;
 An hr:
 ---
 
+backslash character escapes: \` \# \-
+
 emphasis tag *emphasizes*, and a **strong** tag emboldens.
 
 This is a list (unordered):

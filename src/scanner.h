@@ -185,7 +185,15 @@ void scanner(char *file_str)
 				break;
 
 			//==============================
-			// All characters, ptag
+			// backslash escape
+			//==============================
+			case '\\':
+				i++;
+				printf("%c", file_str[i]);
+				break;
+
+			//==============================
+			// all characters, ptag
 			//==============================
 			default:
 				if(file_str[i-1] == '\n' && !in.code)
