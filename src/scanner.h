@@ -6,7 +6,9 @@ void scanner(char *file_str)
 		
 		switch (file_str[i]) {
 
+			//==============================
 			// count htag
+			//==============================
             case '#':
                 if(line.h < 6 && !in.code)
                     line.h++;
@@ -14,7 +16,9 @@ void scanner(char *file_str)
                     printf("%c", file_str[i]);
                 break;
 			
+			//==============================
 			// open htag on space
+			//==============================
 			case ' ':
 
 				if(line.h > 0 && !in.h && !in.code)
@@ -26,7 +30,9 @@ void scanner(char *file_str)
 				}
 				break;
 			
+			//==============================
 			//html tag
+			//==============================
 			case '<':
 				if(file_str[i+1] == '/')
 					in.code = false;
@@ -36,7 +42,9 @@ void scanner(char *file_str)
 				printf("%c", file_str[i]);
 			break;
 
+			//==============================
 			//newline
+			//==============================
 			case '\n':
 				// close htag if in htag
 				if(in.h)
@@ -70,7 +78,9 @@ void scanner(char *file_str)
 				printf("%c", file_str[i]);
 				break;
 
-			//code
+			//==============================
+			//code tag
+			//==============================
 			case '`':
 				// if code block (3 backticks)
 				if(file_str[i+1] == '`' && file_str[i+2] == '`')
@@ -95,7 +105,9 @@ void scanner(char *file_str)
 				}
 				break;
 	
+			//==============================
 			// lists
+			//==============================
 			//unordered
 			case '-':
 				if(!in.code)
@@ -126,6 +138,9 @@ void scanner(char *file_str)
 				}
 				break;
 
+			//==============================
+			// All characters, ptag
+			//==============================
 			default:
 				if(file_str[i-1] == '\n' && !in.code)
 				{
