@@ -25,6 +25,16 @@ void scanner(char *file_str)
 					printf("%c", file_str[i]);
 				}
 				break;
+			
+			//html tag
+			case '<':
+				if(file_str[i+1] == '/')
+					in.code = false;
+				else
+					in.code = true;	
+
+				printf("%c", file_str[i]);
+			break;
 
 			//newline
 			case '\n':
@@ -35,6 +45,7 @@ void scanner(char *file_str)
 					in.h = false;
 					line.h = 0;
 				} else if(in.li) {
+					//close li
 					printf("</li>");
 					in.li = false;
 
@@ -44,6 +55,9 @@ void scanner(char *file_str)
 						{
 							printf("\n</ul>");
 							in.ul = false;
+						} else {
+							printf("\n</ol>");
+							in.ol = false;
 						}
 					}
 				} else if(in.p) {
@@ -82,6 +96,7 @@ void scanner(char *file_str)
 				break;
 	
 			// lists
+			//unordered
 			case '-':
 				if(!in.code)
 				{
@@ -93,9 +108,21 @@ void scanner(char *file_str)
 	
 						printf("<ul>\n");
 						in.ul = true;
+
+					//ordered
+					} else if(file_str[i-1] == '\n' && file_str[i+1] == '.' && file_str[i+2] == ' ' && !in.ol) {
+						// skip over period and space
+						i+=2;
+	
+						printf("<ol>\n");
+						in.ol = true;
 					}
+
 					printf("<li>");
 					in.li = true;
+
+				} else {
+					printf("%c", file_str[i]);
 				}
 				break;
 
