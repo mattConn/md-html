@@ -4,7 +4,7 @@
 #include "line_state.h"
 #include "copy_file.h"
 #include "get_char_count.h"
-#include "scanner.h"
+#include "scanner/main.h"
 
 int main(int argc, char *argv[])
 {
