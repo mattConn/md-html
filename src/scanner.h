@@ -129,9 +129,6 @@ void scanner(char *file_str)
 					// on start of new line with space after dash, open ul
 					if(file_str[i-1] == '\n' && file_str[i+1] == ' ' && !in.ul)
 					{
-						// skip over space
-						i+=1;
-	
 						printf("<ul>\n");
 						in.ul = true;
 					
@@ -139,12 +136,15 @@ void scanner(char *file_str)
 					//ordered
 					//---------------------
 					} else if(file_str[i-1] == '\n' && file_str[i+1] == '.' && file_str[i+2] == ' ' && !in.ol) {
-						// skip over period and space
-						i+=2;
-	
 						printf("<ol>\n");
 						in.ol = true;
 					}
+
+					//num. of characters to skip for each list type
+					if(in.ol)
+						i+=2;
+					else
+						i++;
 
 					printf("<li>");
 					in.li = true;
