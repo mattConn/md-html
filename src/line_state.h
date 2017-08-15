@@ -4,6 +4,7 @@ typedef struct {
 	bool h;
 	bool p;
 	bool ul, ol, li;
+	bool em, strong;
 	bool code, codeblock;
 	bool link;
 } state;

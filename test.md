@@ -16,6 +16,8 @@ done;
 An hr:
 ---
 
+emphasis tag *emphasizes*, and a **strong** tag emboldens.
+
 This is a list (unordered):
 - foo
 - bar
