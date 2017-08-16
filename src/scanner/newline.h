@@ -9,8 +9,9 @@ case '\n':
 		in.h = false;
 		in.code = false;
 		line.h = 0;
+
+	//close li
 	} else if(in.li) {
-		//close li
 		printf("</li>");
 		in.li = false;
 
@@ -25,8 +26,9 @@ case '\n':
 				in.ol = false;
 			}
 		}
+
+	//close ptag if in ptag
 	} else if(in.p) {
-		//close ptag if in ptag
 		printf("</p>");
 		in.p = false;
 	}

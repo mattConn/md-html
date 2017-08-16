@@ -28,7 +28,7 @@ while(file_str[j] != '(')
 {
 	j++;
 
-	//if no closing link, stop searching
+	//if no closing paren., stop searching
 	if(file_str[j] == '\n')
 	{
 		printf("%c", file_str[i]);
@@ -57,12 +57,13 @@ if(file_str[j] == '(')
 	}
 }
 
-// print anchor text
+// print anchor text, close title attr, close left anchor tag
 if(file_str[j] == ')')
 {
 	if(!in_title)
 		printf("\"");
 
+	// close left anchor
 	printf(">");
 	j = link_start + 1; // move back to beginning of link
 	

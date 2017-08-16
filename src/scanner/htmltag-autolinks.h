@@ -66,18 +66,7 @@ if(is_autolink)
 	else
 		in.code = true;
 }
-	if(in.code)
-		printf("&lt;");
-	else
-		printf("%c", file_str[i]);
+	printf("%c", file_str[i]);
 
 }//end expression
 	break;
-
-case '>':
-	if(in.code)
-		printf("&gt;");
-	else
-		printf("%c", file_str[i]);
-	break;
-		

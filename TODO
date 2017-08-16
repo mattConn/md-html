@@ -1,2 +1,4 @@
 blockquotes
 images
+
+better newline detection (check for beginning of file as well)

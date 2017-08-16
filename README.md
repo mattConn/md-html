@@ -42,14 +42,6 @@ Instead of this method, md-html uses the typical unordered list dash, but follow
 -. bar
 -. baz
 ```
-### code tags
-You can write code in code tags (\'code here\') and code blocks normally:
-```
-\'\'\'
-code here
-\'\'\'
-``` 
-If writing HTML tags within code tags, the `<` and `>` will be generated as HTML entities.
 
 # Features needed/wanted
 md-html currently does not honor image or blockquote markdown, but it may in the future.

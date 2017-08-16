@@ -34,12 +34,13 @@ case '-':
 			in.ol = true;
 		}
 
-		//num. of characters to skip for each list type
+		//num. of characters to skip in file string for each list type
 		if(in.ol)
 			i+=2;
 		else if(in.ul)
 			i++;
 
+		// print list item tag if in list
 		if(in.ul || in.ol)
 		{
 			printf("<li>");
@@ -49,6 +50,7 @@ case '-':
 		}
 
 	} else {
+		//print dash in code tag
 		printf("%c", file_str[i]);
 	}
 	break;
