@@ -13,10 +13,10 @@ md-html is licensed under GPL-3.0. <https://www.gnu.org/licenses/gpl-3.0.en.html
 md-html homepage: <http://git.mattconn.io/md-html.git/>
 
 ## Syntax specifics
-md-html uses mostly standard markdown syntax, with a few exceptions listed below, determined mostly by my preferences for how markdown is written:
+md-html uses mostly standard markdown syntax, with a few exceptions listed below, determined mostly by my preferences:
 
 ### h-tags
-An h-tag (`<h1>`, `<h2>`, etc.) is denoted the usual way: by n amount of #'s before text.
+An h-tag (`<h1>`, `<h2>`, etc.) is denoted the usual way: by n amount of `#`'s before text.
 e.g.: `##An h2`
 While h-tags can also be written with an underline in markdown, like the following:
 ```
@@ -42,7 +42,14 @@ Instead of this method, md-html uses the typical unordered list dash, but follow
 -. bar
 -. baz
 ```
+### code tags
+You can write code in code tags (\'code here\') and code blocks normally:
+```
+\'\'\'
+code here
+\'\'\'
+``` 
+If writing HTML tags within code tags, the `<` and `>` will be generated as HTML entities.
 
 # Features needed/wanted
 md-html currently does not honor image or blockquote markdown, but it may in the future.
-I find it HTML's native implementation of these tags to be simple enough, if not simpler and better.
