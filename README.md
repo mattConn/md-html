@@ -12,11 +12,16 @@ Example usage:
 md-html is licensed under GPL-3.0. <https://www.gnu.org/licenses/gpl-3.0.en.html>
 md-html homepage: <http://git.mattconn.io/md-html.git/>
 
+## Building
+Run `make` to compile with clang. Binary will be `bin/md-html`.  
+Run `make check` to convert `test.md` to HTML and send the converted file to stdout.
+To use a different compiler and set flags, edit the appropriate lines in makefile.
+
 ## Syntax specifics
 md-html uses mostly standard markdown syntax, with a few exceptions listed below, determined mostly by my preferences:
 
 ### h-tags
-An h-tag (`<h1>`, `<h2>`, etc.) is denoted the usual way: by n amount of `#`'s before text.
+An h-tag (`h1`, `h2`, etc.) is denoted the usual way: by n amount of `#`'s before text.
 e.g.: `##An h2`
 While h-tags can also be written with an underline in markdown, like the following:
 ```
