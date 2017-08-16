@@ -12,6 +12,7 @@ void copy_file(char *filename, char *file_str)
 		file_str[c] = file_char;
 		c++;
 	}
+	file_str[c-1] = '\0';
 	
 	rewind(file);
 }
