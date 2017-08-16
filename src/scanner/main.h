@@ -13,6 +13,7 @@ void scanner(char *file_str)
 			#include "lists-hr.h"			
 			#include "emphasis-strong.h"			
 			#include "backslash_escape.h"			
+			#include "links.h"			
 
 			//==============================
 			// all characters, ptag
