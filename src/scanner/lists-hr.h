@@ -2,9 +2,6 @@
 // lists and horizontal rule
 //==============================
 
-//---------------------
-//unordered
-//---------------------
 case '-':
 	if(!in.code)
 	{
@@ -18,6 +15,10 @@ case '-':
 			printf("<hr>");
 			break;
 		}
+
+		//---------------------
+		//unordered
+		//---------------------
 
 		// on start of new line with space after dash, open ul
 		if(file_str[i-1] == '\n' && file_str[i+1] == ' ' && !in.ul)
@@ -36,11 +37,16 @@ case '-':
 		//num. of characters to skip for each list type
 		if(in.ol)
 			i+=2;
-		else
+		else if(in.ul)
 			i++;
 
-		printf("<li>");
-		in.li = true;
+		if(in.ul || in.ol)
+		{
+			printf("<li>");
+			in.li = true;
+		} else {
+			printf("%c", file_str[i]);
+		}
 
 	} else {
 		printf("%c", file_str[i]);
