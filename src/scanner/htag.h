@@ -16,6 +16,7 @@ case ' ':
 	{
 		printf("<h%d>",line.h);
 		in.h = true;
+		in.code = true;
 	} else {
 		printf("%c", file_str[i]);
 	}

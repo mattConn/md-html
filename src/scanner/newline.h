@@ -7,6 +7,7 @@
 				{
 					printf("</h%d>", line.h);
 					in.h = false;
+					in.code = false;
 					line.h = 0;
 				} else if(in.li) {
 					//close li
