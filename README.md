@@ -9,7 +9,7 @@ The converted file will then be sent to stdout, where it can be redirected to a 
 Example usage:
 `md-html src/about.md > dist/about.html`
 
-md-html is licensed under GPL-3.0. <https://www.gnu.org/licenses/gpl-3.0.en.html>
+md-html is licensed under GPL-3.0. <https://www.gnu.org/licenses/gpl-3.0.en.html>  
 md-html homepage: <http://git.mattconn.io/md-html.git/>
 
 ## Building
