@@ -8,7 +8,7 @@ case '<':
 bool is_autolink = false;
 int link_len = 0;
 int j = i, link_start = i;
-int link_printed = 0;
+int times_link_printed = 0;
 
 //check for autolink (dot will indicate link)
 //===========================================
@@ -37,7 +37,7 @@ if(is_autolink)
 
 	//print link twice; once for href, and again for text
 	//===================================================
-	while(link_printed < 2)
+	while(times_link_printed < 2)
 	{
 		j = link_start+1;
 		while(file_str[j] != '>')
@@ -45,12 +45,12 @@ if(is_autolink)
 			printf("%c", file_str[j]);
 			j++;
 		}
-		if(link_printed < 1)
+		if(times_link_printed < 1)
 			printf("\">");
 		else
 			printf("</a>");
 
-		link_printed++;
+		times_link_printed++;
 	}
 	
 	//skip over link in file string
@@ -60,6 +60,7 @@ if(is_autolink)
 
 } else { 
 	// html tag
+	//=========
 	if(file_str[i+1] == '/')
 		in.code = false;
 	else
