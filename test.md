@@ -12,12 +12,18 @@ And another [link to something](http://example.com).
 And a final [link](http://example.com "sample link").
 Here is a bad link: [bad link.
 
+This will be an automatic link: <http://example.com>
+
+<http://example.com>
+^ that was another auto. link.
+
 ```
 for $foo in bar;
 do
 	echo $foo;
 done;
 ```
+
 An hr:
 ---
 

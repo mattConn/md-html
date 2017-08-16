@@ -7,7 +7,7 @@ void scanner(char *file_str)
 		switch (file_str[i]) {
 
 			#include "htag.h"			
-			#include "htmltag.h"			
+			#include "htmltag-autolinks.h"			
 			#include "newline.h"			
 			#include "codetag.h"			
 			#include "lists-hr.h"			
