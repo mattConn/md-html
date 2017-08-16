@@ -16,7 +16,7 @@ md-html homepage: <http://git.mattconn.io/md-html.git/>
 md-html uses mostly standard markdown syntax, with a few exceptions listed below, determined mostly by my preferences for how markdown is written:
 
 ### h-tags
-An h-tag (<h1>, <h2>, etc.) is denoted the usual way: by n amount of #'s before text.
+An h-tag (`<h1>`, `<h2>`, etc.) is denoted the usual way: by n amount of #'s before text.
 e.g.: `##An h2`
 While h-tags can also be written with an underline in markdown, like the following:
 ```
