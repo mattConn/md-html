@@ -1,14 +1,17 @@
 BIN = 'bin/md-html'
 BINCHECK = if [ ! -d bin ]; then mkdir bin; fi;
 COMPILER = 'clang'
-FLAGS = '-Weverything'
+FLAGS = '-w'
 TEST = 'test.md'
 
-$(BIN): src/copy_file.h src/line_state.h src/main.c src/scanner/*
-	$(BINCHECK) clang $(FLAGS) src/main.c -o $(BIN)
+$(BIN): src/main.l lex.yy.c
+	$(BINCHECK) $(COMPILER) $(FLAGS) lex.yy.c -lfl -o $(BIN); rm lex.yy.c;
+
+lex.yy.c: src/main.l
+	flex src/main.l
 
 check:
 	$(BIN) $(TEST)
 
 clean:
-	rm -rf bin 
+	rm $(BIN);

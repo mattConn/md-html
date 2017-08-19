@@ -1,44 +1,52 @@
-<head>
-<title>md-html test</title>
-</head>
+# md-html
+Markdown to HTML converter; honors inline HTML.
 
-# This is a header, an h1
+## Usage
+Usage: `md-html [FILE]`
+This will convert markdown file [FILE] into HTML, preserving inline HTML in the process.
+The converted file will then be sent to stdout, where it can be redirected to a file to be saved.
 
-Lorem ipsum dolor sit amet.
-Fizz buzz `foo bar` baz.
+Example usage:
+`md-html src/about.md > dist/about.html`
 
-Here is a [link](example.com).
-And another [link to something](http://example.com).
-And a final [link](http://example.com "sample link").
-Here is a bad link: [bad link.
+md-html is licensed under GPL-3.0. <https://www.gnu.org/licenses/gpl-3.0.en.html>  
+md-html homepage: <http://git.mattconn.io/md-html.git/>
 
-This will be an automatic link: <http://example.com>
+## Building
+Run `make` to compile with clang. Binary will be `bin/md-html`.  
+Run `make check` to convert `test.md` to HTML and send the converted file to stdout.
+To use a different compiler and set flags, edit the appropriate lines in makefile.
 
-<http://example.com>
-^ that was another auto. link.
+## Syntax specifics
+md-html uses mostly standard markdown syntax, with a few exceptions listed below, determined mostly by my preferences:
 
+### h-tags
+An h-tag (`h1`, `h2`, etc.) is denoted the usual way: by n amount of `#`'s before text.
+e.g.: `##An h2`
+While h-tags can also be written with an underline in markdown, like the following:
 ```
-for $foo in bar;
-do
-	echo $foo;
-done;
+An h-tag
+========
 ```
+md-html does not honor this method.
 
-An hr:
----
+### p-tags
+p-tags are written the standard way; just write on a new line without any extra markup. However, carriage returns are honored without the excess two spaces that are typically needed.
 
-backslash character escapes: \` \# \-
-
-emphasis tag *emphasizes*, and a **strong** tag emboldens.
-
-This is a list (unordered):
-- foo
-- bar
-- baz
-
-This is a list, ordered:
+### Ordered lists
+Typically an ordered list is created by prefixing a list item with a number followed by a period; it can be any number, and the numbering can be out of order, or can even be repetitive. 
+e.g.:
+```
+2. foo
+4. bar
+3. baz
+```
+Instead of this method, md-html uses the typical unordered list dash, but followed by a period:
+```
 -. foo
 -. bar
--. etc.
+-. baz
+```
 
-## This should be an h2.
+# Features needed/wanted
+md-html currently does not honor image or blockquote markdown, but it may in the future.
