@@ -21,6 +21,19 @@ To use a different compiler and set flags, edit the appropriate lines in makefil
 ### Differences from standard markdown
 md-html uses mostly standard markdown syntax, with a few exceptions listed below, ordered from greatest to least deviation from the standard:
 
+### Inline HTML
+#### Disabling markdown syntax
+Much like code blocks and backticks (\`\`\`), HTML can be written between two sets of three commas (`,,,`).  
+These delimiters will "disable" markdown syntax for whatever is typed between them.  
+Example:  
+```
+,,,
+<head>
+	<title>About Page</title>
+</head>
+,,,
+``` 
+
 ### p-tags
 #### No two spaces for carriage returns
 p-tags are written the standard way; just write on a new line without any extra markup. However, carriage returns are honored without the excess two spaces before the end of a line.
@@ -51,4 +64,4 @@ An h-tag
 md-html does not honor this method.
 
 # Features needed/wanted
-md-html currently does not honor image or blockquote markdown, but it may in the future.
+md-html currently does not honor image or blockquote markdown, as well as autolinks or references, but it may in the future.
