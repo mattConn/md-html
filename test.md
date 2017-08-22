@@ -1,3 +1,9 @@
+,,,
+<head>
+	<title>md-html test</title>
+</head>
+,,,
+
 # md-html
 Markdown to HTML converter; honors inline HTML.
 

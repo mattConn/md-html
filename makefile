@@ -17,4 +17,4 @@ check:
 	$(BIN) $(TEST)
 
 clean:
-	rm $(BIN);
+	rm -r $(BIN); rm lex.yy.cl rm main.l;
