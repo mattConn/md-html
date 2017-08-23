@@ -19,7 +19,7 @@ bool active = true;
 ##include rules/p-tag.h
 ##include rules/code.h
 ##include rules/newline.h
-##include rules/html.h
+##include rules/deactivate.h
 
 . { printf("%s", yytext); } //wildcard (everything else/all characters)
 
