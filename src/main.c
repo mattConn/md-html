@@ -1,23 +1,40 @@
+%{
+
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
-#include "line_state.h"
-#include "copy_file.h"
-#include "get_char_count.h"
-#include "scanner/main.h"
-#include "user_help_strings.h"
-#include "argument_validation.h"
+#include "src/user_help_strings.h"
+#include "src/argument_validation.h"
+
+// tag states
+bool h, p;
+int h_num = 0;
+
+bool active = true;
+
+%}
+
+%%
+
+##include rules/h-tag.h
+##include rules/p-tag.h
+##include rules/code.h
+##include rules/newline.h
+##include rules/deactivate.h
+
+. { printf("%s", yytext); } //wildcard (everything else/all characters)
+
+%%
 
 int main(int argc, char *argv[])
 {
+	// check for valid argument
 	if( !arg_validation(argc, argv[1]) )
 		return 1;
 
-	char file_str[ get_char_count(argv[1]) ];
+	FILE *file;
+	file = fopen(argv[1], "r");
 
-	copy_file(argv[1], file_str);
-	
-	scanner(file_str);
-	
-	return 0;
+	yyset_in(file);
+	yylex();
+	fclose(file);
 }
